@@ -45,7 +45,7 @@ public class MerchantHome {
 
 	public boolean isLoaded() {
 		System.out.print("Verificamos que la página MerchantHome ha cargado correctamente...");
-		if (Browser.driver().getCurrentUrl() == url){
+		if (Browser.driver().getCurrentUrl().trim().equals(url)){
 			System.out.println("\u001B[32m" + " LISTO" + "\u001B[0m");
 			return true;
 		} else {
