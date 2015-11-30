@@ -22,6 +22,7 @@ public class Browser {
 			driver = new InternetExplorerDriver();
 		}
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
 		System.out.println("\u001B[32m" + " LISTO" + "\u001B[0m");
 	}
 

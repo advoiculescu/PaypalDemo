@@ -19,5 +19,5 @@ Scenario Outline: demo compra correcta
 Examples:
 	| navegador |
 	| Chrome |
-	#| Mozilla Firefox   |
+	| Mozilla Firefox   |
 	#| Internet Explorer  |

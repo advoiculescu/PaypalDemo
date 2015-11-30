@@ -1,14 +1,6 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import static org.junit.Assert.*;
-
-import java.util.concurrent.TimeUnit;
 
 import browser.*;
 
@@ -53,7 +45,6 @@ public class MerchantHome {
 			System.out.println("KO: "+Browser.driver().getCurrentUrl()+" != "+url);
 			return false;
 		}
-		
 	}
 	
 	public void clickBlackCamera(){
@@ -73,7 +64,6 @@ public class MerchantHome {
 		WebElement popUpButton = null;
 		try {
 			popUpButton = Browser.driver().findElement(map.getLocator("popUpButton"));
-			//skipTutorial
 			popUpButton.click();
 		} catch (Exception e) {
 			e.printStackTrace();

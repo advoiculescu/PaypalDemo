@@ -1,16 +1,18 @@
 package pages;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
-import browser.*;
+import browser.Browser;
+import browser.ObjectMap;
 
-public class Home {
-	private String url = "https://demo.paypal.com/us/home";
+public class BigboxMerchant {
+	private String url = "https://demo.paypal.com/us/navigation?merchant=bigbox&page=category";
 	private String title = "PayPal Demo";
 	ObjectMap map;
 	
-	public Home() {
-		map = new ObjectMap("data\\Home.properties");
+	public BigboxMerchant() {
+		map = new ObjectMap("data\\BigboxMerchant.properties");
 	}
 
 	public String getUrl() {
@@ -30,13 +32,13 @@ public class Home {
 	}
 
 	public void load() {
-		System.out.print("Cargamos la página Home...");
+		System.out.print("Cargamos la página BigboxMerchant...");
 		Browser.open(url);
 		System.out.println("\u001B[32m" + " LISTO" + "\u001B[0m");
 	}
 
 	public boolean isLoaded() {
-		System.out.print("Verificamos que la página Home ha cargado correctamente...");
+		System.out.print("Verificamos que la página BigboxMerchant ha cargado correctamente...");
 		if (Browser.driver().getCurrentUrl().trim().equals(url)){
 			System.out.println("\u001B[32m" + " LISTO" + "\u001B[0m");
 			return true;
@@ -47,12 +49,16 @@ public class Home {
 		}
 	}
 	
-	public void clickSeeTheDemo(){
-		System.out.print("Hacemos click en 'See The Demo'...");
-		WebElement button = null;
+	public void clickAddToCart(){
+		//category-add-to-cart-btn
+		System.out.print("Hacemos click en 'Add to Cart'...");
+		WebElement addToCart = null;
 		try {
-			button = Browser.driver().findElement(map.getLocator("button"));
-			button.click();
+			addToCart = Browser.driver().findElement(map.getLocator("addToCart"));
+			Actions actions = new Actions(Browser.driver());
+			actions.moveToElement(addToCart);
+			actions.perform();
+			addToCart.click();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

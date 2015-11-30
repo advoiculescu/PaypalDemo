@@ -2,6 +2,7 @@ package paypalDemo;
 
 
 import browser.Browser;
+import pages.BigboxMerchant;
 import pages.Home;
 import pages.MerchantHome;
 import cucumber.api.java.After;
@@ -45,6 +46,7 @@ public class Ejecutor {
 	@When("^hacemos click en popUp \"([^\"]*)\"$")
 	public void hacemos_click_en_popUp(String arg1) throws Throwable {
 		MerchantHome merchantHome = new MerchantHome();
+		Thread.sleep(3000);
 		assertTrue(merchantHome.isLoaded());
 		merchantHome.clickPopUp(arg1);
 	}
@@ -53,16 +55,20 @@ public class Ejecutor {
 	public void seleccionamos_el_objeto_que_queremos_comprar() throws Throwable {
 		MerchantHome merchantHome = new MerchantHome();
 		merchantHome.isLoaded();
+		Thread.sleep(2000);
 		merchantHome.clickBlackCamera();
+	}
+	
+	@When("^hacemos click en el boton de \"([^\"]*)\"$")
+	public void hacemos_click_en_el_boton_de(String arg1) throws Throwable {
+		BigboxMerchant bigboxMerchant = new BigboxMerchant();
+		bigboxMerchant.isLoaded();
+		Thread.sleep(2000);
+		bigboxMerchant.clickAddToCart();
 	}
 
 	@When("^pulsar  \"([^\"]*)\"$")
 	public void pulsar(String arg1) throws Throwable {
-		// TODO
-	}
-
-	@When("^hacemos click en el boton de \"([^\"]*)\"$")
-	public void hacemos_click_en_el_boton_de(String arg1) throws Throwable {
 		// TODO
 	}
 
