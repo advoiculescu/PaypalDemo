@@ -4,6 +4,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.BeforeClass;
 
+import browser.Browser;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -16,25 +18,19 @@ public class Ejecutor {
 		paypal pay = new paypal ();
 	}
 	
-	
-	@Given("^Probar navegadores Chrome$")
-	public void probar_navegadores_Chrome() throws Throwable {
-	    // TODO
+	@Given("^instanciar navegador Chrome$")
+	public void instanciar_navegador_Chrome() throws Throwable {
+		Browser.startDriver("Chrome");
 	}
 
-	@Given("^Probar navegadores Mozilla$")
-	public void probar_navegadores_Mozilla() throws Throwable {
-		// TODO
+	@Given("^instanciar navegador Mozilla Firefox$")
+	public void instanciar_navegador_Mozilla_Firefox() throws Throwable {
+		Browser.startDriver("Mozilla Firefox");
 	}
 
-	@Given("^Probar navegadores Explorer$")
-	public void probar_navegadores_Explorer() throws Throwable {
-		// TODO
-	}
-	
-	@Given("^abro el navegador correspondiente(\\d+)$")
-	public void abro_el_navegador_correspondiente(int arg1) throws Throwable {
-		// TODO
+	@Given("^instanciar navegador Internet Explorer$")
+	public void instanciar_navegador_Internet_Explorer() throws Throwable {
+		Browser.startDriver("Internet Explorer");
 	}
 	
 	@When("^pulsar  \"([^\"]*)\"$")
@@ -96,6 +92,21 @@ public class Ejecutor {
 	@When("^hacemos click en boton \"([^\"]*)\"$")
 	public void hacemos_click_en_boton(String arg1) throws Throwable {
 		// TODO
+	}
+	
+	@Then("^cerramos instancia de Chrome$")
+	public void cerramos_instancia_de_Chrome() throws Throwable {
+		Browser.close();
+	}
+
+	@Then("^cerramos instancia de Mozilla Firefox$")
+	public void cerramos_instancia_de_Mozilla_Firefox() throws Throwable {
+		Browser.close();
+	}
+
+	@Then("^cerramos instancia de Internet Explorer$")
+	public void cerramos_instancia_de_Internet_Explorer() throws Throwable {
+		Browser.close();
 	}
 
 	
