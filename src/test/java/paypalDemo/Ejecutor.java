@@ -1,21 +1,22 @@
 package paypalDemo;
 
-import static org.junit.Assert.assertTrue;
-
-import org.junit.BeforeClass;
 
 import browser.Browser;
-
+import pages.Home;
+import pages.MerchantHome;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import static org.junit.Assert.*;
+
 public class Ejecutor {
 
-	@BeforeClass
-	public void instanciar ()
-	{
-		paypal pay = new paypal ();
+	@Before
+	public void setUp(){
+		System.out.println("\t\t--------------------------------------------INICIO DEL TEST--------------------------------------------");
 	}
 	
 	@Given("^instanciar navegador Chrome$")
@@ -33,18 +34,30 @@ public class Ejecutor {
 		Browser.startDriver("Internet Explorer");
 	}
 	
-	@When("^pulsar  \"([^\"]*)\"$")
-	public void pulsar(String arg1) throws Throwable {
-		// TODO
+	@When("^ir a la pagina del home de paypal y pulsar el boton \"([^\"]*)\"$")
+	public void ir_a_la_pagina_del_home_de_paypal_y_pulsar_el_boton(String arg1) throws Throwable {
+		Home home = new Home();
+		home.load();
+		home.isLoaded();
+		home.clickSeeTheDemo();
 	}
-
-	@When("^ir a la p?gina del home de paypal y pulsar el boton \"([^\"]*)\"$")
-	public void ir_a_la_p_gina_del_home_de_paypal_y_pulsar_el_boton(String arg1) throws Throwable {
-		// TODO
+	
+	@When("^hacemos click en popUp \"([^\"]*)\"$")
+	public void hacemos_click_en_popUp(String arg1) throws Throwable {
+		MerchantHome merchantHome = new MerchantHome();
+		assertTrue(merchantHome.isLoaded());
+		merchantHome.clickPopUp(arg1);
 	}
-
+	
 	@When("^seleccionamos el objeto que queremos comprar$")
 	public void seleccionamos_el_objeto_que_queremos_comprar() throws Throwable {
+		MerchantHome merchantHome = new MerchantHome();
+		merchantHome.isLoaded();
+		merchantHome.clickBlackCamera();
+	}
+
+	@When("^pulsar  \"([^\"]*)\"$")
+	public void pulsar(String arg1) throws Throwable {
 		// TODO
 	}
 
@@ -84,11 +97,6 @@ public class Ejecutor {
 		// TODO
 	}
 
-	@When("^ir a la pagina del home de paypal y pulsar el boton \"([^\"]*)\"$")
-	public void ir_a_la_pagina_del_home_de_paypal_y_pulsar_el_boton(String arg1) throws Throwable {
-		// TODO	
-	}
-
 	@When("^hacemos click en boton \"([^\"]*)\"$")
 	public void hacemos_click_en_boton(String arg1) throws Throwable {
 		// TODO
@@ -108,7 +116,10 @@ public class Ejecutor {
 	public void cerramos_instancia_de_Internet_Explorer() throws Throwable {
 		Browser.close();
 	}
-
 	
+	@After
+	public void tearDown(){
+		System.out.println("\t\t--------------------------------------------FIN DEL TEST--------------------------------------------");
+	}
 	
 }

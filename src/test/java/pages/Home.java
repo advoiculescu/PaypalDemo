@@ -8,10 +8,10 @@ import browser.*;
 public class Home {
 	private String url = "https://demo.paypal.com/us/home";
 	private String title = "PayPal Demo";
-	private ObjectMap map;
-
+	ObjectMap map;
+	
 	public Home() {
-		map = new ObjectMap("data\\PageObjects\\front\\Home.properties");
+		map = new ObjectMap("data\\Home.properties");
 	}
 
 	public String getUrl() {
@@ -31,15 +31,26 @@ public class Home {
 	}
 
 	public void load() {
-		Browser.startDriver("");
+		System.out.print("Cargamos la página Home...");
 		Browser.open(url);
+		System.out.println("\u001B[32m" + " LISTO" + "\u001B[0m");
 	}
 
 	public void isLoaded() {
+		System.out.print("Verificamos que la página Home ha cargado correctamente...");
 		assertTrue(Browser.driver().getCurrentUrl().equals(url));
+		System.out.println("\u001B[32m" + " LISTO" + "\u001B[0m");
 	}
-
-	public void close() {
-		Browser.close();
+	
+	public void clickSeeTheDemo(){
+		System.out.print("Hacemos click en 'See The Demo'...");
+		WebElement button = null;
+		try {
+			button = Browser.driver().findElement(map.getLocator("button"));
+			button.click();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("\u001B[32m" + " LISTO" + "\u001B[0m");
 	}
 }

@@ -4,6 +4,7 @@ Feature: Ejemplo compra paypal
 Scenario Outline: demo compra correcta
 	Given instanciar navegador <navegador>
 	When ir a la pagina del home de paypal y pulsar el boton "See the demo"
+	And hacemos click en popUp "Skip tour"
 	And seleccionamos el objeto que queremos comprar
 	And hacemos click en el boton de "ADD TO CART"
 	And hacemos click en el boton "PROCEED TO CHECKOUT"
@@ -18,5 +19,5 @@ Scenario Outline: demo compra correcta
 Examples:
 	| navegador |
 	| Chrome |
-	| Mozilla Firefox   |
-	| Internet Explorer  |
+	#| Mozilla Firefox   |
+	#| Internet Explorer  |
