@@ -50,12 +50,12 @@ public class Ejecutor {
 		home.clickSeeTheDemo();
 	}
 	
-	@When("^hacemos click en popUp \"([^\"]*)\"$")
-	public void hacemos_click_en_popUp(String arg1) throws Throwable {
+	@When("^hacemos click en Skip tour")
+	public void hacemos_click_en_popUp() throws Throwable {
 		MerchantHome merchantHome = new MerchantHome();
 		Thread.sleep(3000);
 		assertTrue(merchantHome.isLoaded());
-		merchantHome.clickPopUp(arg1);
+		merchantHome.clickPopUp();
 	}
 	
 	@When("^seleccionamos el objeto que queremos comprar$")
@@ -66,8 +66,8 @@ public class Ejecutor {
 		merchantHome.clickBlackCamera();
 	}
 
-	@When("^hacemos click en el boton de \"([^\"]*)\"")
-	public void hacemos_click_en_el_boton_de_Mozilla_Firefox(String arg1) throws Throwable {
+	@When("hacemos click en ADD TO CART")
+	public void hacemos_click_en_el_boton_de_Mozilla_Firefox() throws Throwable {
 		BigboxMerchant bigboxMerchant = new BigboxMerchant();
 		Thread.sleep(2000);
 		bigboxMerchant.isLoaded();
@@ -75,8 +75,8 @@ public class Ejecutor {
 		Thread.sleep(5000);
 	}
 
-	@When("^hacemos click en el boton \"([^\"]*)\"$")
-	public void hacemos_click_en_el_boton(String arg1) throws Throwable {
+	@When("^hacemos click en PROCEED TO CHECKOUT")
+	public void hacemos_click_en_el_boton() throws Throwable {
 		ShoppingCart shoppingCart = new ShoppingCart();
 		Thread.sleep(2000);
 		shoppingCart.isLoaded();
@@ -84,8 +84,8 @@ public class Ejecutor {
 	}
 	
 
-	@When("^hacemos click en \"([^\"]*)\"$")
-	public void hacemos_click_en(String arg1) throws Throwable {
+	@When("^hacemos click en Checkout as guest")
+	public void hacemos_click_en() throws Throwable {
 		MerchantLogin merchantLogin = new MerchantLogin();
 		Thread.sleep(2000);
 		merchantLogin.isLoaded();
@@ -93,16 +93,17 @@ public class Ejecutor {
 	}
 	
 
-	@When("^hacemos click en boton \"([^\"]*)\"$")
-	public void hacemos_click_en_boton(String arg1) throws Throwable {
+
+	@When("^hacemos click en Continue")
+	public void hacemos_click_en_boton() throws Throwable {
 		Shipping shipping = new Shipping();
 		Thread.sleep(2000);
 		shipping.isLoaded();
 		shipping.clickContinue();
 	}
 	
-	@When("^pulsar  \"([^\"]*)\"$")
-	public void pulsar(String arg1) throws Throwable {
+	@When("^pulsar Continue")
+	public void pulsar() throws Throwable {
 		MerchantCreditCard merchantCreditCard = new MerchantCreditCard();
 		Thread.sleep(2000);
 		merchantCreditCard.isLoaded();
@@ -110,16 +111,16 @@ public class Ejecutor {
 	}
 
 
-	@When("^hacer click en \"([^\"]*)\"$")
-	public void hacer_click_en(String arg1) throws Throwable {
+	@When("^hacemos click en Log in to PayPal")
+	public void hacer_click_en() throws Throwable {
 		PayPalCheckout paypalCheckout = new PayPalCheckout();
 		Thread.sleep(2000);
 		paypalCheckout.isLoaded();
 		paypalCheckout.clickLogInToPayPal();
 	}
 
-	@When("^click \"([^\"]*)\"$")
-	public void click(String arg1) throws Throwable {
+	@When("^hacemos click en Pay Now")
+	public void click() throws Throwable {
 		PayPalCheckoutReview paypalCheckoutReview = new PayPalCheckoutReview();
 		Thread.sleep(2000);
 		paypalCheckoutReview.isLoaded();

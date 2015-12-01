@@ -1,0 +1,1 @@
+#Elegir la opción pagar con la visa en el paso 3 de la compra.

@@ -59,8 +59,8 @@ public class MerchantHome {
 		System.out.println("\u001B[32m" + " LISTO" + "\u001B[0m");
 	}
 	
-	public void clickPopUp (final String a){
-		System.out.print("Hacemos click en '"+a+"'...");
+	public void clickPopUp (){
+		System.out.print("Hacemos click en 'Skip Tour'...");
 		WebElement popUpButton = null;
 		try {
 			popUpButton = Browser.driver().findElement(map.getLocator("popUpButton"));
