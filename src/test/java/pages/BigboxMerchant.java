@@ -1,7 +1,9 @@
 package pages;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+
 
 import browser.Browser;
 import browser.ObjectMap;
@@ -50,18 +52,20 @@ public class BigboxMerchant {
 	}
 	
 	public void clickAddToCart(){
-		//category-add-to-cart-btn
 		System.out.print("Hacemos click en 'Add to Cart'...");
 		WebElement addToCart = null;
-		try {
-			addToCart = Browser.driver().findElement(map.getLocator("addToCart"));
-			Actions actions = new Actions(Browser.driver());
-			actions.moveToElement(addToCart);
-			actions.perform();
-			addToCart.click();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+			try {
+				addToCart = Browser.driver().findElement(map.getLocator("addToCart"));
+				((JavascriptExecutor) Browser.driver()).executeScript("arguments[0].scrollIntoView(true);", addToCart);
+				Thread.sleep(3000);
+				((JavascriptExecutor) Browser.driver()).executeScript("arguments[0].click();", addToCart);
+			} catch (StaleElementReferenceException e) {
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
 		System.out.println("\u001B[32m" + " LISTO" + "\u001B[0m");
 	}
 }

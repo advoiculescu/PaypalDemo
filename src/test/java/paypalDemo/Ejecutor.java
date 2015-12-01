@@ -4,7 +4,14 @@ package paypalDemo;
 import browser.Browser;
 import pages.BigboxMerchant;
 import pages.Home;
+import pages.MerchantCreditCard;
 import pages.MerchantHome;
+import pages.MerchantLogin;
+import pages.PayPalCheckout;
+import pages.PayPalCheckoutReview;
+import pages.PayPalConfirm;
+import pages.Shipping;
+import pages.ShoppingCart;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -54,58 +61,78 @@ public class Ejecutor {
 	@When("^seleccionamos el objeto que queremos comprar$")
 	public void seleccionamos_el_objeto_que_queremos_comprar() throws Throwable {
 		MerchantHome merchantHome = new MerchantHome();
-		merchantHome.isLoaded();
 		Thread.sleep(2000);
+		merchantHome.isLoaded();
 		merchantHome.clickBlackCamera();
 	}
-	
-	@When("^hacemos click en el boton de \"([^\"]*)\"$")
-	public void hacemos_click_en_el_boton_de(String arg1) throws Throwable {
-		BigboxMerchant bigboxMerchant = new BigboxMerchant();
-		bigboxMerchant.isLoaded();
-		Thread.sleep(2000);
-		bigboxMerchant.clickAddToCart();
-	}
 
-	@When("^pulsar  \"([^\"]*)\"$")
-	public void pulsar(String arg1) throws Throwable {
-		// TODO
+	@When("^hacemos click en el boton de \"([^\"]*)\"")
+	public void hacemos_click_en_el_boton_de_Mozilla_Firefox(String arg1) throws Throwable {
+		BigboxMerchant bigboxMerchant = new BigboxMerchant();
+		Thread.sleep(2000);
+		bigboxMerchant.isLoaded();
+		bigboxMerchant.clickAddToCart();
+		Thread.sleep(5000);
 	}
 
 	@When("^hacemos click en el boton \"([^\"]*)\"$")
 	public void hacemos_click_en_el_boton(String arg1) throws Throwable {
-		// TODO
+		ShoppingCart shoppingCart = new ShoppingCart();
+		Thread.sleep(2000);
+		shoppingCart.isLoaded();
+		shoppingCart.clickProceedToCheckout();
 	}
+	
 
 	@When("^hacemos click en \"([^\"]*)\"$")
 	public void hacemos_click_en(String arg1) throws Throwable {
-		// TODO
+		MerchantLogin merchantLogin = new MerchantLogin();
+		Thread.sleep(2000);
+		merchantLogin.isLoaded();
+		merchantLogin.clickCheckoutAsGuest();
 	}
+	
 
-	@When("^click en \"([^\"]*)\"$")
-	public void click_en(String arg1) throws Throwable {
-		// TODO
+	@When("^hacemos click en boton \"([^\"]*)\"$")
+	public void hacemos_click_en_boton(String arg1) throws Throwable {
+		Shipping shipping = new Shipping();
+		Thread.sleep(2000);
+		shipping.isLoaded();
+		shipping.clickContinue();
+	}
+	
+	@When("^pulsar  \"([^\"]*)\"$")
+	public void pulsar(String arg1) throws Throwable {
+		MerchantCreditCard merchantCreditCard = new MerchantCreditCard();
+		Thread.sleep(2000);
+		merchantCreditCard.isLoaded();
+		merchantCreditCard.clickContinue();
 	}
 
 
 	@When("^hacer click en \"([^\"]*)\"$")
 	public void hacer_click_en(String arg1) throws Throwable {
-		// TODO
+		PayPalCheckout paypalCheckout = new PayPalCheckout();
+		Thread.sleep(2000);
+		paypalCheckout.isLoaded();
+		paypalCheckout.clickLogInToPayPal();
 	}
 
 	@When("^click \"([^\"]*)\"$")
 	public void click(String arg1) throws Throwable {
-		// TODO
+		PayPalCheckoutReview paypalCheckoutReview = new PayPalCheckoutReview();
+		Thread.sleep(2000);
+		paypalCheckoutReview.isLoaded();
+		paypalCheckoutReview.clickPayNow();
 	}
 
 	@Then("^el mensaje obtenido es \"([^\"]*)\"$")
 	public void el_mensaje_obtenido_es(String arg1) throws Throwable {
-		// TODO
-	}
-
-	@When("^hacemos click en boton \"([^\"]*)\"$")
-	public void hacemos_click_en_boton(String arg1) throws Throwable {
-		// TODO
+		PayPalConfirm paypalConfirm = new PayPalConfirm();
+		Thread.sleep(2000);
+		paypalConfirm.isLoaded();
+		assertEquals(paypalConfirm.getConfirmationText(),arg1);
+		System.out.println("Mensaje validado de forma correcta");
 	}
 	
 	@Then("^cerramos instancia de Chrome$")
