@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import browser.*;
@@ -7,6 +8,7 @@ import browser.*;
 public class Home {
 	private String url = "https://demo.paypal.com/us/home";
 	private String title = "PayPal Demo";
+	private int hola;
 	ObjectMap map;
 	
 	public Home() {
