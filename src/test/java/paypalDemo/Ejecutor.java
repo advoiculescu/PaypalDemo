@@ -2,7 +2,10 @@ package paypalDemo;
 
 
 import browser.Browser;
+import pages.Apply;
 import pages.BigboxMerchant;
+import pages.ClassicCheckout;
+import pages.ClassicCheckoutReview;
 import pages.Home;
 import pages.MerchantCreditCard;
 import pages.MerchantHome;
@@ -136,7 +139,7 @@ public class Ejecutor {
 		Thread.sleep(2000);
 		paypalConfirm.isLoaded();
 		assertEquals(arg1,paypalConfirm.getConfirmationText());
-		System.out.println("Mensaje validado de forma correcta");
+		System.out.println("\u001B[32m" + "Mensaje validado de forma correcta" + "\u001B[0m");
 	}
 	
 	@Then("^cerramos instancia de Chrome$")
@@ -194,24 +197,36 @@ public class Ejecutor {
 	
 	/*---------------------------------------------------------- INICIO SCENARIO: paypalCredit.feature --------------------------------------------*/
 		
-	@When("^hacemos click en Log In")
-	public void click_log_in() throws Throwable {
-		// Pulsar el boton de Log In (debajo de la contraseña. No hace falta rellenar ésta)
-	}
-	
 	@When("^hacemos click en PayPal CREDIT")
 	public void click_paypal_CREDIT() throws Throwable {
-		// Pulsar el boton de PayPal CREDIT
+		ShoppingCart shoppingCart = new ShoppingCart();
+		Thread.sleep(2000);
+		shoppingCart.isLoaded();
+		shoppingCart.clickPaypalCredit();
+	}
+	
+	@When("^hacemos click en Log In")
+	public void click_log_in() throws Throwable {
+		ClassicCheckout classicCheckout = new ClassicCheckout();
+		Thread.sleep(2000);
+		classicCheckout.isLoaded();
+		classicCheckout.clickLogIn();
 	}
 	
 	@When("^hacemos click en Agree and Continue")
 	public void click_agree_and_continue() throws Throwable {
-		// Pulsar el boton agree and continue
+		Apply apply = new Apply();
+		Thread.sleep(2000);
+		apply.isLoaded();
+		apply.clickAgreeAndContinue();
 	}
 	
 	@When("^hacemos click en el boton de Continue")
 	public void click_boton_continue() throws Throwable {
-		// Pulsar el boton continue (da igual el que pulses, el de arriba o el de abajo, ambos te envían a la misma página.)
+		ClassicCheckoutReview classicCheckoutReview = new ClassicCheckoutReview();
+		Thread.sleep(2000);
+		classicCheckoutReview.isLoaded();
+		classicCheckoutReview.clickContinue();
 	}
 	
 	/*---------------------------------------------------------- FIN SCENARIO: paypalCredit.feature -----------------------------------------------------*/

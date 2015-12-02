@@ -54,7 +54,7 @@ public class ShoppingCart {
 		try {
 			proceedToCheckout = Browser.driver().findElement(map.getLocator("proceedToCheckout"));
 			((JavascriptExecutor) Browser.driver()).executeScript("arguments[0].scrollIntoView(true);", proceedToCheckout);
-			Thread.sleep(5000);
+			Thread.sleep(500);
 			((JavascriptExecutor) Browser.driver()).executeScript("arguments[0].click();", proceedToCheckout);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -68,8 +68,24 @@ public class ShoppingCart {
 		try {
 			checkoutWithPaypal = Browser.driver().findElement(map.getLocator("checkoutWithPaypal"));
 			((JavascriptExecutor) Browser.driver()).executeScript("arguments[0].scrollIntoView(true);", checkoutWithPaypal);
-			Thread.sleep(5000);
+			Thread.sleep(500);
 			((JavascriptExecutor) Browser.driver()).executeScript("arguments[0].click();", checkoutWithPaypal);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("\u001B[32m" + " LISTO" + "\u001B[0m");
+	}
+
+	public void clickPaypalCredit(){
+		System.out.print("Hacemos click en 'Paypal Credit'...");
+		WebElement paypalCredit = null;
+		WebElement image = null;
+		try {
+			paypalCredit = Browser.driver().findElement(map.getLocator("paypalCredit"));
+			image = Browser.driver().findElement(map.getLocator("image"));
+			((JavascriptExecutor) Browser.driver()).executeScript("arguments[0].scrollIntoView(true);", image);
+			Thread.sleep(500);
+			paypalCredit.click();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
