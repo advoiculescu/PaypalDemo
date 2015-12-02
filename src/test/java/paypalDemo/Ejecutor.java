@@ -182,4 +182,39 @@ public class Ejecutor {
 	
 	/*----------------------------------------------------------FIN SCENARIO: PayPalCard.feature --------------------------------------------------*/
 	
+	/*---------------------------------------------------------- INICIO SCENARIO: paypalCredit.feature --------------------------------------------*/
+		
+	@When("^hacemos click en Log In")
+	public void click_log_in() throws Throwable {
+		// Pulsar el boton de Log In (debajo de la contraseña. No hace falta rellenar ésta)
+	}
+	
+	@When("^hacemos click en PayPal CREDIT")
+	public void click_paypal_CREDIT() throws Throwable {
+		// Pulsar el boton de PayPal CREDIT
+	}
+	
+	@When("^hacemos click en Agree and Continue")
+	public void click_agree_and_continue() throws Throwable {
+		// Pulsar el boton agree and continue
+	}
+	
+	@When("^hacemos click en el boton de Continue")
+	public void click_boton_continue() throws Throwable {
+		// Pulsar el boton continue (da igual el que pulses, el de arriba o el de abajo, ambos te envían a la misma página.)
+	}
+	
+	/*---------------------------------------------------------- FIN SCENARIO: paypalCredit.feature -----------------------------------------------------*/
+	
+	
+	/*---------------------------------------------------------- INICIO SCENARIO: elegirVisaNoPaypal.feature --------------------------------------------*/
+	
+	@When("^pulsar radiobutton de Visa")
+	public void click_button_Visa() throws Throwable {
+		// Pulsar el radiobutton para seleccionar el pago con VISA.
+	}
+	
+	/*---------------------------------------------------------- FIN SCENARIO: elegirVisaNoPaypal.feature --------------------------------------------*/
+	
+	
 }
