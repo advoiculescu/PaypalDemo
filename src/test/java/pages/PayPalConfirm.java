@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import browser.Browser;
@@ -56,7 +55,6 @@ public class PayPalConfirm {
 			payNow = Browser.driver().findElement(map.getLocator("confirmationText"));
 			texto = payNow.getText();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return texto;

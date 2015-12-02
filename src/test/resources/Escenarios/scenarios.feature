@@ -13,9 +13,9 @@ Scenario Outline: demo compra correcta
 	And pulsar Continue
 	And hacemos click en Log in to PayPal
 	And hacemos click en Pay Now
-    Then el mensaje obtenido es "Thank you! Your order is complete."
+   Then el mensaje obtenido es "Thank you! Your order is complete."
     And cerramos instancia de <navegador>
-    
+   
 Examples:
 	| navegador |
 	| Chrome |
