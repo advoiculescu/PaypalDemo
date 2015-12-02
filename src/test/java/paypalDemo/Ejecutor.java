@@ -227,4 +227,15 @@ public class Ejecutor {
 	/*---------------------------------------------------------- FIN SCENARIO: elegirVisaNoPaypal.feature --------------------------------------------*/
 	
 	
+	/*---------------------------------------------------------- INICIO SCENARIO: pinchandoFotoProducto.feature --------------------------------------------*/
+	
+	@When("^ seleccionamos el objeto que queremos comprar")
+	public void click_imagen_objeto() throws Throwable {
+		// Pulsar la foto del objeto que se quiere comprar
+	}
+	
+	
+	/*---------------------------------------------------------- FIN SCENARIO: pinchandoFotoProducto.feature --------------------------------------------*/
+	
+	
 }
