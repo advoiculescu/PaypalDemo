@@ -22,6 +22,8 @@ import static org.junit.Assert.*;
 
 public class Ejecutor {
 
+	/*----------------------------------------------------------INICIO SCENARIO: scenarios.feature --------------------------------------------------*/
+	
 	@Before
 	public void setUp(){
 		System.out.println("\t\t--------------------------------------------INICIO DEL TEST--------------------------------------------");
@@ -155,5 +157,29 @@ public class Ejecutor {
 	public void tearDown(){
 		System.out.println("\t\t--------------------------------------------FIN DEL TEST--------------------------------------------");
 	}
+	
+	/*----------------------------------------------------------FIN SCENARIO: scenarios.feature --------------------------------------------------*/
+	
+
+	/*----------------------------------------------------------INICIO SCENARIO: PayPalCard.feature --------------------------------------------------*/
+	
+	
+	@When("^hacemos click en Check out with PayPal")
+	public void click_check_out_with_PayPal() throws Throwable {
+		// Pulsar el botón de check out to paypal a la hora de pagar.
+	}
+	
+	@When("^hacemos click en Place Order")
+	public void click_Place_Order() throws Throwable {
+		// Pulsar en el boton de login después de elegir pagar con paypal
+	}
+	
+	@When("^confirmamos compra con PayPal pulsando Continue")
+	public void click_Continue_para_confirmar_el_pago() throws Throwable {
+		// Pulsar el boton de continuar 
+	}
+	
+	
+	/*----------------------------------------------------------FIN SCENARIO: PayPalCard.feature --------------------------------------------------*/
 	
 }

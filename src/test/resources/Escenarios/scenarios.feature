@@ -1,5 +1,5 @@
 @Run
-Feature: Ejemplo compra paypal
+Feature: Ejemplo compra
 
 Scenario Outline: demo compra correcta
 	Given instanciar navegador <navegador>
