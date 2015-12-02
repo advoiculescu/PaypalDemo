@@ -7,13 +7,12 @@ import browser.Browser;
 import browser.ObjectMap;
 
 public class PayPalCheckout {
-	private String url = "https://demo.paypal.com/us/navigation?merchant=bigbox&page=ccMerchantCreditCard";
+	private String url = "https://demo.paypal.com/us/navigation?merchant=bigbox&page=classicCheckout";
 	private String title = "PayPal Demo";
 	ObjectMap map;
 	
 	public PayPalCheckout() {
 		map = new ObjectMap("data\\PayPalCheckout.properties");
-		this.url = "https://demo.paypal.com/us/navigation?merchant=bigbox&page=ccMerchantCreditCard";
 	}
 
 	public String getUrl() {
