@@ -18,4 +18,4 @@ Scenario Outline: demo comprar con credito de PayPal
 Examples:
 	| navegador |
 	| Chrome |
-	#| Mozilla Firefox   |
+	| Mozilla Firefox   |
