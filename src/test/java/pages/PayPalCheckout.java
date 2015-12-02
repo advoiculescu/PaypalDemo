@@ -13,6 +13,7 @@ public class PayPalCheckout {
 	
 	public PayPalCheckout() {
 		map = new ObjectMap("data\\PayPalCheckout.properties");
+		this.url = "https://demo.paypal.com/us/navigation?merchant=bigbox&page=ccMerchantCreditCard";
 	}
 
 	public String getUrl() {
@@ -51,6 +52,19 @@ public class PayPalCheckout {
 	
 	public void clickLogInToPayPal(){
 		System.out.print("Hacemos click en 'Log in to Paypal'...");
+		WebElement logInToPayPal = null;
+		try {
+			logInToPayPal = Browser.driver().findElement(map.getLocator("logInToPayPal"));
+			((JavascriptExecutor) Browser.driver()).executeScript("arguments[0].scrollIntoView(true);", logInToPayPal);
+			logInToPayPal.click();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("\u001B[32m" + " LISTO" + "\u001B[0m");
+	}
+	
+	public void clickContinue(){
+		System.out.print("Hacemos click en 'Continue'...");
 		WebElement logInToPayPal = null;
 		try {
 			logInToPayPal = Browser.driver().findElement(map.getLocator("logInToPayPal"));

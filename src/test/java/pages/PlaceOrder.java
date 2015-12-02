@@ -1,17 +1,17 @@
 package pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import browser.*;
 
-public class Home {
-	private String url = "https://demo.paypal.com/us/home";
+public class PlaceOrder {
+	private String url = "https://demo.paypal.com/us/navigation?merchant=bigbox&page=placeOrder";
 	private String title = "PayPal Demo";
-
 	ObjectMap map;
 	
-	public Home() {
-		map = new ObjectMap("data\\Home.properties");
+	public PlaceOrder() {
+		map = new ObjectMap("data\\PlaceOrder.properties");
 	}
 
 	public String getUrl() {
@@ -31,13 +31,13 @@ public class Home {
 	}
 
 	public void load() {
-		System.out.print("Cargamos la página Home...");
+		System.out.print("Cargamos la página PlaceOrder...");
 		Browser.open(url);
 		System.out.println("\u001B[32m" + " LISTO" + "\u001B[0m");
 	}
 
 	public boolean isLoaded() {
-		System.out.print("Verificamos que la página Home ha cargado correctamente...");
+		System.out.print("Verificamos que la página PlaceOrder ha cargado correctamente...");
 		if (Browser.driver().getCurrentUrl().trim().equals(url)){
 			System.out.println("\u001B[32m" + " LISTO" + "\u001B[0m");
 			return true;
@@ -48,12 +48,13 @@ public class Home {
 		}
 	}
 	
-	public void clickSeeTheDemo(){
-		System.out.print("Hacemos click en 'See The Demo'...");
-		WebElement button = null;
+	public void clickPlaceOrder(){
+		System.out.print("Hacemos click en 'Place Order'...");
+		WebElement placeOrder = null;
 		try {
-			button = Browser.driver().findElement(map.getLocator("button"));
-			button.click();
+			placeOrder = Browser.driver().findElement(map.getLocator("placeOrder"));
+			((JavascriptExecutor) Browser.driver()).executeScript("arguments[0].scrollIntoView(true);", placeOrder);
+			((JavascriptExecutor) Browser.driver()).executeScript("arguments[0].click();", placeOrder);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

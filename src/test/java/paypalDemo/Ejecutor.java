@@ -10,6 +10,7 @@ import pages.MerchantLogin;
 import pages.PayPalCheckout;
 import pages.PayPalCheckoutReview;
 import pages.PayPalConfirm;
+import pages.PlaceOrder;
 import pages.Shipping;
 import pages.ShoppingCart;
 import cucumber.api.java.After;
@@ -158,27 +159,35 @@ public class Ejecutor {
 		System.out.println("\t\t--------------------------------------------FIN DEL TEST--------------------------------------------");
 	}
 	
-	/*----------------------------------------------------------FIN SCENARIO: scenarios.feature --------------------------------------------------*/
+	/*----------------------------------------------------------FIN SCENARIO: scenarios.feature --------------------------------------------------*/	
 	
-
 	/*----------------------------------------------------------INICIO SCENARIO: PayPalCard.feature --------------------------------------------------*/
 	
 	
 	@When("^hacemos click en Check out with PayPal")
 	public void click_check_out_with_PayPal() throws Throwable {
-		// Pulsar el botón de check out to paypal a la hora de pagar.
-	}
-	
-	@When("^hacemos click en Place Order")
-	public void click_Place_Order() throws Throwable {
-		// Pulsar en el boton de login después de elegir pagar con paypal
+		ShoppingCart shoppingCart = new ShoppingCart();
+		Thread.sleep(2000);
+		shoppingCart.isLoaded();
+		shoppingCart.clickCheckoutWithPaypal();
 	}
 	
 	@When("^confirmamos compra con PayPal pulsando Continue")
 	public void click_Continue_para_confirmar_el_pago() throws Throwable {
-		// Pulsar el boton de continuar 
+		PayPalCheckoutReview paypalCheckoutReview = new PayPalCheckoutReview();
+		paypalCheckoutReview.setUrl("https://demo.paypal.com/us/navigation?merchant=bigbox&page=classicCheckoutReview");
+		Thread.sleep(2000);
+		paypalCheckoutReview.isLoaded();
+		paypalCheckoutReview.clickPayNow();
 	}
 	
+	@When("^hacemos click en Place Order")
+	public void click_Place_Order() throws Throwable {
+		PlaceOrder placeOrder = new PlaceOrder();
+		Thread.sleep(2000);
+		placeOrder.isLoaded();
+		placeOrder.clickPlaceOrder();	
+	}
 	
 	/*----------------------------------------------------------FIN SCENARIO: PayPalCard.feature --------------------------------------------------*/
 	

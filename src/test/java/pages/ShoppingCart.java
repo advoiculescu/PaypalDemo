@@ -61,4 +61,18 @@ public class ShoppingCart {
 		}
 		System.out.println("\u001B[32m" + " LISTO" + "\u001B[0m");
 	}
+	
+	public void clickCheckoutWithPaypal(){
+		System.out.print("Hacemos click en 'Checkout with Paypal'...");
+		WebElement checkoutWithPaypal = null;
+		try {
+			checkoutWithPaypal = Browser.driver().findElement(map.getLocator("checkoutWithPaypal"));
+			((JavascriptExecutor) Browser.driver()).executeScript("arguments[0].scrollIntoView(true);", checkoutWithPaypal);
+			Thread.sleep(5000);
+			((JavascriptExecutor) Browser.driver()).executeScript("arguments[0].click();", checkoutWithPaypal);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("\u001B[32m" + " LISTO" + "\u001B[0m");
+	}
 }
