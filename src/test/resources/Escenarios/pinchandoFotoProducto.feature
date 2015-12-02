@@ -7,7 +7,7 @@ Scenario Outline: compra con click en la foto
 	And hacemos click en Skip tour
 	And seleccionamos el objeto que queremos comprar
 	And hacemos click en la foto del objeto elegido
-	And hacemos click en ADD TO CART
+	And hacemos click en ADD TO CART estando en la pagina del producto
 	And hacemos click en PROCEED TO CHECKOUT
 	And hacemos click en Checkout as guest
 	And hacemos click en Continue

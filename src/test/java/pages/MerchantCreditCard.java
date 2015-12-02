@@ -62,4 +62,32 @@ public class MerchantCreditCard {
 		}
 		System.out.println("\u001B[32m" + " LISTO" + "\u001B[0m");
 	}
+	
+	public void clickContinueAfterClickingRadio(){
+		System.out.print("Hacemos click en 'Continue' tras pulsar en el radio...");
+		WebElement continueButton2 = null;
+		try {
+			continueButton2 = Browser.driver().findElement(map.getLocator("continueButton2"));
+			((JavascriptExecutor) Browser.driver()).executeScript("arguments[0].scrollIntoView(true);", continueButton2);
+			Thread.sleep(500);
+			continueButton2.click();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("\u001B[32m" + " LISTO" + "\u001B[0m");
+	}
+	
+	public void clickCCRadioButton(){
+		System.out.print("Hacemos click en el radio button 'Tarjetas Crédito'...");
+		WebElement radio = null;
+		try {
+			radio = Browser.driver().findElement(map.getLocator("radio"));
+			((JavascriptExecutor) Browser.driver()).executeScript("arguments[0].scrollIntoView(true);", radio);
+			Thread.sleep(500);
+			((JavascriptExecutor) Browser.driver()).executeScript("arguments[0].click();", radio);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("\u001B[32m" + " LISTO" + "\u001B[0m");
+	}
 }

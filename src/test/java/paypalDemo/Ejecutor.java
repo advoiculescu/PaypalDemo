@@ -11,6 +11,7 @@ import pages.PayPalCheckout;
 import pages.PayPalCheckoutReview;
 import pages.PayPalConfirm;
 import pages.PlaceOrder;
+import pages.Product;
 import pages.Shipping;
 import pages.ShoppingCart;
 import cucumber.api.java.After;
@@ -56,7 +57,7 @@ public class Ejecutor {
 	@When("^hacemos click en Skip tour")
 	public void hacemos_click_en_popUp() throws Throwable {
 		MerchantHome merchantHome = new MerchantHome();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		assertTrue(merchantHome.isLoaded());
 		merchantHome.clickPopUp();
 	}
@@ -69,13 +70,12 @@ public class Ejecutor {
 		merchantHome.clickBlackCamera();
 	}
 
-	@When("hacemos click en ADD TO CART")
-	public void hacemos_click_en_el_boton_de_Mozilla_Firefox() throws Throwable {
+	@When("hacemos click en ADD TO CART desde el listado de productos")
+	public void hacemos_click_en_ADD_TO_CART() throws Throwable {
 		BigboxMerchant bigboxMerchant = new BigboxMerchant();
 		Thread.sleep(2000);
 		bigboxMerchant.isLoaded();
 		bigboxMerchant.clickAddToCart();
-		Thread.sleep(5000);
 	}
 
 	@When("^hacemos click en PROCEED TO CHECKOUT")
@@ -135,7 +135,7 @@ public class Ejecutor {
 		PayPalConfirm paypalConfirm = new PayPalConfirm();
 		Thread.sleep(2000);
 		paypalConfirm.isLoaded();
-		assertEquals(paypalConfirm.getConfirmationText(),arg1);
+		assertEquals(arg1,paypalConfirm.getConfirmationText());
 		System.out.println("Mensaje validado de forma correcta");
 	}
 	
@@ -221,17 +221,40 @@ public class Ejecutor {
 	
 	@When("^pulsar radiobutton de Visa")
 	public void click_button_Visa() throws Throwable {
-		// Pulsar el radiobutton para seleccionar el pago con VISA.
+		MerchantCreditCard merchantCreditCard = new MerchantCreditCard();
+		Thread.sleep(2000);
+		merchantCreditCard.isLoaded();
+		merchantCreditCard.clickCCRadioButton();
 	}
+	@When("^pulsamos Continue tras pulsar en radio")
+	public void pulsar_Continue_tras_pulsa_en_radio() throws Throwable {
+		MerchantCreditCard merchantCreditCard = new MerchantCreditCard();
+		Thread.sleep(2000);
+		merchantCreditCard.isLoaded();
+		merchantCreditCard.clickContinueAfterClickingRadio();
+	}
+	
 	
 	/*---------------------------------------------------------- FIN SCENARIO: elegirVisaNoPaypal.feature --------------------------------------------*/
 	
 	
 	/*---------------------------------------------------------- INICIO SCENARIO: pinchandoFotoProducto.feature --------------------------------------------*/
 	
-	@When("^ seleccionamos el objeto que queremos comprar")
+	@When("^hacemos click en la foto del objeto elegido$")
 	public void click_imagen_objeto() throws Throwable {
-		// Pulsar la foto del objeto que se quiere comprar
+		BigboxMerchant bigboxMerchant = new BigboxMerchant();
+		Thread.sleep(2000);
+		bigboxMerchant.isLoaded();
+		bigboxMerchant.clickImage();
+	}
+	
+	
+	@When("hacemos click en ADD TO CART estando en la pagina del producto")
+	public void hacemos_click_en_ADD_TO_CART_estando_en_la_pagina_del_producto() throws Throwable {
+		Product product = new Product();
+		Thread.sleep(2000);
+		product.isLoaded();
+		product.clickAddToCart();
 	}
 	
 	

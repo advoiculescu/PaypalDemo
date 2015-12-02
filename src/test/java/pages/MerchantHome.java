@@ -63,6 +63,7 @@ public class MerchantHome {
 		System.out.print("Hacemos click en 'Skip Tour'...");
 		WebElement popUpButton = null;
 		try {
+			Thread.sleep(3000);
 			popUpButton = Browser.driver().findElement(map.getLocator("popUpButton"));
 			popUpButton.click();
 		} catch (Exception e) {
