@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import browser.*;
 
@@ -84,7 +85,7 @@ public class ShoppingCart {
 			paypalCredit = Browser.driver().findElement(map.getLocator("paypalCredit"));
 			image = Browser.driver().findElement(map.getLocator("image"));
 			((JavascriptExecutor) Browser.driver()).executeScript("arguments[0].scrollIntoView(true);", image);
-			Thread.sleep(500);
+			new WebDriverWait(Browser.driver(), WebDriverWait.DEFAULT_SLEEP_TIMEOUT);
 			paypalCredit.click();
 		} catch (Exception e) {
 			e.printStackTrace();
